@@ -14,4 +14,3 @@ test("Check for connection to server", () => {
   expect(wrapper.state().movies.length).toBeGreaterThan(0)
 })
 
-test("")
