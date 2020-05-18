@@ -16,7 +16,7 @@ export default class Movies extends React.Component {
         return (
         <ul>
             <h1>Movies</h1>
-            { this.state.movies.map((movie, index) => <li key={index}><img src={movie.website} alt=""/></li>)}
+            { this.state.movies.map((movie, index) => <div style={{display: 'inline-block', height: '300px'}}><li style={{ listStyleType: "none", margin: "10px;" }} key={index}><img src={movie.poster} alt="" /></li></div>)}
         </ul>);
     }
 }
