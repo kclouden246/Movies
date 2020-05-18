@@ -3,7 +3,7 @@ describe("Home Page", () => {
         cy.visit("http://localhost:3000")
     })
     it("Display list of movies", () => {
-        cy.get('ul').then(() => {
+        cy.get('li').then(() => {
             cy.get('li')
         })
     })
