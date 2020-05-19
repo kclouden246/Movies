@@ -16,7 +16,6 @@ export default class Movies extends React.Component {
     }
 
     render(props){
-        console.log("Movies Props:",props);
         return (
         <div>
             {this.state.visible !== false ?   

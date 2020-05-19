@@ -1,0 +1,30 @@
+Stories
+Browse movies anonymously-
+Get all movies
+Display movies 
+
+
+Look at specific movie with details and reviews-
+fields:
+title
+Release date
+genre
+actors
+description
+
+create links on the displayed movies
+create component to display details
+
+Search movies-
+Create search bar
+Create search method
+Display results in new component
+
+Post a review on a movie-
+check if user is logged in
+review form
+submit form
+
+
+Register a new user-
+register username and password in memory
