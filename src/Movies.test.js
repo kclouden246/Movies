@@ -84,7 +84,7 @@ test("display a single movie ID", async () => {
     //fetch.mockClear();
 })
 
-test("Test the movieDetails method", () => {
+test("Test the movieDetails method", async () => {
     const wrapper = shallow(<Movies />)
 
     const fetchMock = jest.fn()
@@ -102,7 +102,7 @@ test("Test the movieDetails method", () => {
     wrapper.update()
 
     //ASSERT
-    expect(wrapper.instance().state.selectedMovie).toBe({})
+    expect(wrapper.instance().state.selectedMovie).toEqual({})
     wrapper.instance().callMovieDetails(0)
     expect(wrapper.instance().state.selectedMovie).toBe(mockSelectedMovie)
 })

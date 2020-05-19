@@ -16,4 +16,13 @@ describe("Home Page", () => {
         cy.get('#1').click();
         expect(cy.get('#movieTitle').text()).toBe('Guardians of the Galaxy Vol. 2');
     })
+
+    it("Contains a Login button", () => {
+        expect(cy.get("#login")).to.exist
+    })
+    it("Verify email and password fields contain something", () => {
+        cy.get("#email").type("user")
+        cy.get("#password").type("pw")
+        cy.get("#login").click()
+    })
 }) 

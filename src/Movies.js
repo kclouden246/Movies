@@ -1,5 +1,6 @@
 import React from 'react'
 import Details from './Details'
+import Login from './Login'
 
 export default class Movies extends React.Component {
     state = {
@@ -18,6 +19,7 @@ export default class Movies extends React.Component {
     render(props){
         return (
         <div>
+            <Login />
             {this.state.visible !== false ?   
             <div>
                 <Details poster={this.state.selectedMovie.poster} title={this.state.selectedMovie.title} released={this.state.selectedMovie.released} plot={this.state.selectedMovie.plot} actors={this.state.selectedMovie.actors} genre={this.state.selectedMovie.genre} />
