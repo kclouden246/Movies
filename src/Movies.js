@@ -7,7 +7,9 @@ export default class Movies extends React.Component {
         movies: [],   
         movieId: 0,
         visible: false,
-        selectedMovie: {}
+        selectedMovie: {},
+        username: "",
+        password: ""
     }
 
     async componentDidMount(){
@@ -19,7 +21,8 @@ export default class Movies extends React.Component {
     render(props){
         return (
         <div>
-            <Login />
+            <Login loginAccount={(uname, pwd) => this.setState({username: uname, password: pwd})}/>
+            <div>{this.state.username}</div>
             {this.state.visible !== false ?   
             <div>
                 <Details poster={this.state.selectedMovie.poster} title={this.state.selectedMovie.title} released={this.state.selectedMovie.released} plot={this.state.selectedMovie.plot} actors={this.state.selectedMovie.actors} genre={this.state.selectedMovie.genre} />
