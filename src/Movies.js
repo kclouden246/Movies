@@ -33,7 +33,6 @@ export default class Movies extends React.Component {
     }
 
     callMovieDetails(id){
-        console.log("id", id)
         let selectedMovie = this.state.movies[id];
         this.setState({visible: true, selectedMovie: selectedMovie})
     }
