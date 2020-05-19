@@ -1,9 +1,11 @@
 import React from 'react'
+import Details from './Details'
 
 export default class Movies extends React.Component {
     state = {
         movies: [],   
-        movieId: 0     
+        movieId: 0,
+        visible: true
     }
 
     async componentDidMount(){
@@ -14,9 +16,24 @@ export default class Movies extends React.Component {
 
     render(props){
         return (
-        <ul>
-            <h1>Movies</h1>
-            { this.state.movies.map((movie, index) => <div style={{display: 'inline-block', height: '300px'}}><li style={{ listStyleType: "none", margin: "10px" }} key={index}><img src={movie.poster} alt="" /></li></div>)}
-        </ul>);
+        <div>
+            {this.state.visible !== false ?   
+            <div>
+                <Details movieId={1} />
+            </div>
+            : <div></div>}
+            <ul>        
+                <h1>Movies</h1>
+                { this.state.movies.map((movie, index) => 
+                <a style={{display: 'inline-block', height: '300px'}} key={movie.movieId} id={movie.movieId} onClick={this.callMovieDetails}><li style={{ listStyleType: "none", margin: "10px" }} ><img src={movie.poster} alt="" /></li></a>)}
+            </ul>
+        </div>
+        );
+    }
+
+    callMovieDetails(event){
+        console.log("event", event)
+        this.setState({visible: true, movieId:1})
+        
     }
 }
