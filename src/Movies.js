@@ -5,7 +5,8 @@ export default class Movies extends React.Component {
     state = {
         movies: [],   
         movieId: 0,
-        visible: true
+        visible: false,
+        selectedMovie: {}
     }
 
     async componentDidMount(){
@@ -15,25 +16,26 @@ export default class Movies extends React.Component {
     }
 
     render(props){
+        console.log("Movies Props:",props);
         return (
         <div>
             {this.state.visible !== false ?   
             <div>
-                <Details movieId={1} />
+                <Details poster={this.state.selectedMovie.poster} title={this.state.selectedMovie.title} released={this.state.selectedMovie.released} plot={this.state.selectedMovie.plot} actors={this.state.selectedMovie.actors} genre={this.state.selectedMovie.genre} />
             </div>
             : <div></div>}
             <ul>        
                 <h1>Movies</h1>
                 { this.state.movies.map((movie, index) => 
-                <a style={{display: 'inline-block', height: '300px'}} key={movie.movieId} id={movie.movieId} onClick={this.callMovieDetails}><li style={{ listStyleType: "none", margin: "10px" }} ><img src={movie.poster} alt="" /></li></a>)}
+                <a style={{display: 'inline-block', height: '300px'}} key={index} id={index} onClick={() =>this.callMovieDetails(index)}><li style={{ listStyleType: "none", margin: "10px" }} ><img src={movie.poster} alt="" /></li></a>)}
             </ul>
         </div>
         );
     }
 
-    callMovieDetails(event){
-        console.log("event", event)
-        this.setState({visible: true, movieId:1})
-        
+    callMovieDetails(id){
+        console.log("id", id)
+        let selectedMovie = this.state.movies[id];
+        this.setState({visible: true, selectedMovie: selectedMovie})
     }
 }
